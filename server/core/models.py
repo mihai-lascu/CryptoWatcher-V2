@@ -37,18 +37,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
 
 
-class Portfolio(models.Model):
-    """Model for Portfolio"""
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    portfolio_name = models.CharField(max_length=50, default="Crypto portfolio")
-
-    def __str__(self):
-        return self.portfolio_name
-
-
 class Cryptocurrency(models.Model):
     """Model for Cryptocurrencies"""
-    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     coin_symbol = models.CharField(max_length=10)
     coin_amount = models.FloatField(default=0.0)
     coin_investment = models.FloatField(default=0.0)
