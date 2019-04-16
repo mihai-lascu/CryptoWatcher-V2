@@ -9,8 +9,12 @@ export class CryptoRestService implements ICryptoService {
   constructor(private http: HttpClient) {
   }
 
-  getCryptoData(crypto: string): Observable<any> {
+  getCryptoMetrics(crypto: string): Observable<any> {
     return this.http.get<any>(`https://data.messari.io/api/v1/assets/${crypto}/metrics`);
+  }
+
+  getCryptoProfile(crypto: string): Observable<any> {
+    return this.http.get<any>(`https://data.messari.io/api/v1/assets/${crypto}/profile`);
   }
 
   getCryptoGeneralNews(): Observable<any> {

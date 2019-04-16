@@ -1,0 +1,30 @@
+<br>
+<div class="jumbotron">
+  <p class="lead">Name: {{searchData.cryptoMetrics.name}}</p>
+  <p>Symbol: {{searchData.cryptoMetrics.symbol}}</p>
+  <p>Current USD Price: ${{searchData.cryptoMetrics.priceUsd}}</p>
+  <p>Market Cap: ${{searchData.cryptoMetrics.marketCap}}</p>
+  <p>24Hr %Change: {{searchData.cryptoMetrics.percentChange24Hr}}%</p>
+  <p>1W %Change: {{searchData.cryptoMetrics.percentChange1Week}}%</p>
+  <p>1M %Change: {{searchData.cryptoMetrics.percentChange1Month}}%</p>
+  <p>{{searchData.cryptoProfile.tagLine}}</p>
+  <p>{{searchData.cryptoProfile.overview}}</p>
+  <p>{{searchData.cryptoProfile.background}}</p>
+  <p>{{searchData.cryptoProfile.technology}}</p>
+  <a [href]="searchData.cryptoProfile.whitePaper">Whitepaper</a>
+</div>
+<div>
+  <p style="font-size: 25px">{{searchData.cryptoMetrics.name}} related news</p>
+  <div *ngFor="let news of searchData.cryptoNews" class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{news.title}}</h5>
+        <p class="card-text">{{news.content}}</p>
+        <p class="card-text">Author: {{news.author}}</p>
+        <a [href]="news.url" class="btn btn-secondary">Read more</a>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+

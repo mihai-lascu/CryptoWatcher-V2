@@ -1,10 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CommonsModule} from "./commons/commons.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,7 +14,8 @@ import {CommonsModule} from "./commons/commons.module";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonsModule
+    CommonsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,12 +8,17 @@ import {INavigationService, NAVIGATION_SERVICE} from "./commons/navigation.servi
 })
 
 export class AppComponent {
+  private searchSymbol: string;
 
   constructor(@Inject(NAVIGATION_SERVICE) private navigationService: INavigationService) {
   }
 
   goToHome() {
     return this.navigationService.goHome();
+  }
+
+  goToSearch() {
+    return this.navigationService.goSearch(this.searchSymbol);
   }
 
   // getToken() {

@@ -2,7 +2,9 @@ import {InjectionToken} from "@angular/core";
 import {Observable} from "rxjs";
 
 export interface ICryptoService {
-  getCryptoData(crypto: string): Observable<any>
+  getCryptoMetrics(crypto: string): Observable<any>
+
+  getCryptoProfile(crypto: string): Observable<any>
 
   getCryptoGeneralNews(): Observable<any>
 

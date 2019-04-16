@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a (click)="goToHome()" class="navbar-brand" href="/home">Crypto watcher</a>
+  <a (click)="goToHome()" [routerLink]="['/home']" class="navbar-brand">Crypto watcher</a>
   <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
           class="navbar-toggler"
           data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Portfolio</a>
+        <a class="nav-link" href="">Portfolio</a>
       </li>
     </ul>
     <div class="navbar-nav">
@@ -17,9 +17,11 @@
       <a class="nav-item nav-link" href="#">Login</a>
       <a class="nav-item nav-link" href="#">Register</a>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input aria-label="Search" class="form-control mr-sm-2" placeholder="Lookup Crypto" type="search">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+    <form (ngSubmit)="goToSearch()" class="form-inline my-2 my-lg-0">
+      <input [(ngModel)]="searchSymbol" aria-label="Search" class="form-control mr-sm-2" name="symbol"
+             placeholder="Example: btc" type="search">
+      <button [routerLink]="['/search']" class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search
+      </button>
     </form>
   </div>
 </nav>

@@ -5,5 +5,10 @@ export interface ICoin {
   volume?: string,
   marketCap?: string,
   supply?: string,
-  symbol?: string
+  symbol?: string,
+  formattedPrice?: string,
+  formattedChange24Hr?: string,
+  formattedVolume?: string,
+  formattedMarketCap?: string,
+  formattedSupply?: string,
 }

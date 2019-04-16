@@ -11,29 +11,29 @@
     <th (click)="sortTOP20('24h')" scope="col">24H change</th>
     <th (click)="sortTOP20('volume')" scope="col">Volume</th>
     <th (click)="sortTOP20('marketCap')" scope="col">Market Cap</th>
-    <th (click)="sortTOP20('supply')" scope="col">Supply</th>
+    <th (click)="sortTOP20('supply')" scope="col">Circulating supply</th>
   </tr>
   </thead>
   <tbody *ngFor="let crypto of top20">
   <tr>
     <td>{{crypto.name}}</td>
-    <td>${{crypto.price}}</td>
-    <td>{{number_format.format(crypto.change24Hr)}}%</td>
-    <td>${{number_format.format(crypto.volume)}}</td>
-    <td>${{number_format.format(crypto.marketCap)}}</td>
-    <td>{{number_format.format(crypto.supply)}} {{crypto.symbol}}</td>
+    <td>${{crypto.formattedPrice}}</td>
+    <td>{{crypto.formattedChange24Hr}}%</td>
+    <td>${{crypto.formattedVolume}}</td>
+    <td>${{crypto.formattedMarketCap}}</td>
+    <td>{{crypto.formattedSupply}} {{crypto.symbol}}</td>
   </tr>
   </tbody>
 </table>
 
 <div class="row">
-  <div *ngFor="let x of generalNews.Data" class="col-sm">
+  <div *ngFor="let x of generalNews" class="col-sm">
     <div class="card" style="width: 18rem;">
-      <img alt="{{ x.source }}" class="card-img-top" src="{{ x.imageurl }}">
+      <img [src]="x.imageURL" alt="{{ x.source }}" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">{{x.title}}</h5>
         <p class="card-text">{{x.body}}</p>
-        <a class="btn btn-secondary" href="{{ x.url }}">Read more</a>
+        <a [href]="x.url" class="btn btn-secondary">Read more</a>
       </div>
     </div>
     <br>
